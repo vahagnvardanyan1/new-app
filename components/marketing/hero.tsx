@@ -17,6 +17,12 @@ type HeroProps = {
   cards?: FloatingCardItem[];
 };
 
+const getEnterDelaySeconds = ({ id }: { id: number }) => {
+  // React app used `Math.random() * 0.5` on mount; we make it deterministic per card.
+  const bucket = Math.abs(id * 37) % 50; // 0..49
+  return bucket / 100;
+};
+
 export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -107,9 +113,17 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               cardRefs.current.set(card.id, node);
             }}
             className={cn("absolute opacity-70 md:opacity-100", card.className)}
-            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.92, y: 10 }}
-            animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
-            transition={prefersReducedMotion ? undefined : { delay: 0.12 + index * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.8 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
+            transition={
+              prefersReducedMotion
+                ? undefined
+                : {
+                    opacity: { duration: 0.8, delay: getEnterDelaySeconds({ id: card.id }) },
+                    scale: { duration: 0.8, delay: getEnterDelaySeconds({ id: card.id }) },
+                    ease: "easeOut",
+                  }
+            }
           >
             <div className="float-y rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--background)_35%,transparent)] shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
               <div className="relative h-[clamp(100px,18vw,200px)] w-[clamp(140px,25vw,280px)] overflow-hidden rounded-2xl">
