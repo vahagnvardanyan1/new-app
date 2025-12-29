@@ -25,20 +25,20 @@ export type FooterContactItem = {
 };
 
 export const footerQuickLinks: FooterLink[] = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  // { label: "Features", href: "#features" },
+  // { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const footerServices: FooterLink[] = [
-  { label: "IT Support", href: "#it-support" },
-  { label: "Automation", href: "#automation" },
-  { label: "Marketing", href: "#marketing" },
-  { label: "Consulting", href: "#consulting" },
-  { label: "Development", href: "#development" },
+  { label: "IT Support", href: "/#it-support" },
+  { label: "Automation", href: "/#automation" },
+  { label: "Marketing", href: "/#marketing" },
+  { label: "Consulting", href: "/#consulting" },
+  { label: "Development", href: "/#development" },
 ];
 
 export const footerSocial: FooterLink[] = [
@@ -54,9 +54,8 @@ export const footerSocialLinks: FooterSocialLink[] = [
 ];
 
 export const footerContactItems: FooterContactItem[] = [
-  { key: "mail", label: "hello@agency.com", href: "mailto:hello@agency.com" },
-  { key: "phone", label: "+1 (555) 123-4567", href: "tel:+15551234567" },
-  { key: "location", label: "San Francisco, CA", href: "#location" },
+  { key: "mail", label: "process.easy.agency@gmail.com", href: "mailto:process.easy.agency@gmail.com" },
+  { key: "phone", label: "+374 93 45 47 75", href: "tel:+37493454775" },
 ];
 
 

@@ -45,12 +45,12 @@ export type AiRoleItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  // { label: "Features", href: "#features" },
+  // { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const floatingCards: FloatingCardItem[] = [

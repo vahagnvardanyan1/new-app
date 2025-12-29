@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -35,12 +37,12 @@ export const SiteFooter = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center sm:col-span-2 sm:items-start sm:text-left lg:col-span-1"
           >
-            <a href="#home" className="flex items-center">
+            <Link href="/#home" className="flex items-center">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-(--accent) transition-transform duration-300 hover:scale-110">
                 <span className="h-5 w-5 rounded-sm border-2 border-white" />
               </span>
               <span className="sr-only">Automation Agency</span>
-            </a>
+            </Link>
 
             <p className="mt-6 mb-6 max-w-xs text-sm leading-relaxed text-[color-mix(in_srgb,var(--foreground)_65%,transparent)]">
               Building the future of digital automation with cutting-edge technology and premium design.
@@ -156,15 +158,18 @@ export const SiteFooter = () => {
             © {year} Automation Agency. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service"].map((label) => (
-              <a
-                key={label}
-                href={`#${label.toLowerCase().replaceAll(" ", "-")}`}
-                className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                {label}
-              </a>
-            ))}
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </Container>
