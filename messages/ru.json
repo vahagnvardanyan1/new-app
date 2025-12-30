@@ -70,7 +70,7 @@
           },
           {
             "name": "Профессиональный",
-            "price": { "currencySymbol": "֏", "major": "20", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Для небольших проектов",
             "benefits": [
               "Профессиональный дизайн",
