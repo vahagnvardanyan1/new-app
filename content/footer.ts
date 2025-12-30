@@ -41,16 +41,11 @@ export const footerServices: FooterLink[] = [
   { label: "Development", href: "/#development" },
 ];
 
-export const footerSocial: FooterLink[] = [
-  { label: "Instagram", href: "#instagram" },
-  { label: "Facebook", href: "#facebook" },
-  { label: "LinkedIn", href: "#linkedin" },
-];
+
 
 export const footerSocialLinks: FooterSocialLink[] = [
   { key: "instagram", label: "Instagram", href: "#instagram" },
   { key: "facebook", label: "Facebook", href: "#facebook" },
-  { key: "linkedin", label: "LinkedIn", href: "#linkedin" },
 ];
 
 export const footerContactItems: FooterContactItem[] = [

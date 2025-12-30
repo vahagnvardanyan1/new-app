@@ -65,7 +65,6 @@ const MarketingLayout = async ({ children, params }: MarketingLayoutProps) => {
           socialLinks: [
             { key: "instagram", label: "Instagram", href: "#instagram" },
             { key: "facebook", label: "Facebook", href: "#facebook" },
-            { key: "linkedin", label: "LinkedIn", href: "#linkedin" },
           ],
           contactItems: [
             { key: "mail", label: "process.easy.agency@gmail.com", href: "mailto:process.easy.agency@gmail.com" },
