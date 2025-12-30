@@ -2,23 +2,27 @@ import { Container } from "@/components/ui/container";
 import type { LogoItem } from "@/content/marketing";
 import { logos } from "@/content/marketing";
 import { cn } from "@/lib/utils/cn";
+import Link from "next/link";
 
 type LogoMarqueeProps = {
   items?: LogoItem[];
   className?: string;
+  copy: {
+    badge: string;
+  };
 };
 
-export const LogoMarquee = ({ items = logos, className }: LogoMarqueeProps) => {
+export const LogoMarquee = ({ items = logos, className, copy }: LogoMarqueeProps) => {
   const duplicated = [...items, ...items, ...items];
 
   return (
-    <section className={cn("relative w-full overflow-hidden bg-[var(--background)] py-12 md:py-16", className)}>
+    <section className={cn("relative w-full overflow-hidden bg-background py-12 md:py-16", className)}>
       <Container>
         <div className="mb-12 flex items-center justify-center gap-3 md:mb-16">
           <div className="h-px flex-1 bg-[linear-gradient(90deg,transparent,color-mix(in_srgb,var(--foreground)_55%,transparent))] opacity-30" />
           <div className="rounded-full border border-[color-mix(in_srgb,var(--foreground)_35%,transparent)] px-3 py-1">
             <span className="text-[10px] font-medium uppercase tracking-wider text-[color-mix(in_srgb,var(--foreground)_65%,transparent)]">
-              Used by folks at
+              {copy.badge}
             </span>
           </div>
           <div className="h-px flex-1 bg-[linear-gradient(90deg,color-mix(in_srgb,var(--foreground)_55%,transparent),transparent)] opacity-30" />
@@ -30,12 +34,14 @@ export const LogoMarquee = ({ items = logos, className }: LogoMarqueeProps) => {
 
           <div className="flex items-center gap-12 md:gap-16 lg:gap-20 marquee-x">
             {duplicated.map((logo, index) => (
-              <span
+              <Link key={`${logo.label}-${index}`} href={logo.href} target="_blank" rel="noopener noreferrer">
+                <span
                 key={`${logo.label}-${index}`}
-                className="flex-shrink-0 whitespace-nowrap text-base font-medium tracking-wider text-[color-mix(in_srgb,var(--foreground)_45%,transparent)] transition hover:text-[color-mix(in_srgb,var(--foreground)_75%,transparent)] md:text-lg lg:text-xl"
+                className="shrink-0 whitespace-nowrap text-base font-medium tracking-wider text-[color-mix(in_srgb,var(--foreground)_45%,transparent)] transition hover:text-[color-mix(in_srgb,var(--foreground)_75%,transparent)] md:text-lg lg:text-xl"
               >
                 {logo.label}
               </span>
+              </Link>
             ))}
           </div>
         </div>

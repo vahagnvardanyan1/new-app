@@ -6,6 +6,7 @@ export type FloatingCardBaseItem = {
 
 export type LogoItem = {
   label: string;
+  href: string;
 };
 
 export type ServiceBaseItem = {
@@ -69,23 +70,11 @@ export const floatingCards: FloatingCardBaseItem[] = [
 ];
 
 export const logos: LogoItem[] = [
-  { label: "CALARTS" },
-  { label: "Alibaba" },
-  { label: "LACMA" },
-  { label: "SCI-ARC" },
-  { label: "NASA" },
-  { label: "POSSIBLE" },
-  { label: "Gensler" },
-  { label: "DreamWorks" },
-  { label: "RISD" },
-  { label: "MoMA" },
-  { label: "ByteDance" },
-  { label: "VTProDesign" },
-  { label: "Google" },
-  { label: "LEXUS" },
-  { label: "BOCA" },
-  { label: "DeepMind" },
-  { label: "Microsoft" },
+  { label: "Free Convert", href: "https://freeconvert.tools" },
+  { label: "Hay Avto", href:"https://hayavto.am" },
+  { label: "Gevorg Dabaghyan", href:'https://gevorgdabaghyan.com' },
+  { label: "Back Yard Space", href:"https://backyardspace.us" },
+  { label: "King Shin", href:'https://king-shin.am' },
 ];
 
 export const services: ServiceBaseItem[] = [
