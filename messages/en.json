@@ -6,9 +6,7 @@
       "localeSwitcherAriaLabel": "Change language",
       "mobileNav": {
         "openMenuAriaLabel": "Open menu",
-        "closeMenuAriaLabel": "Close menu",
-        "loginLabel": "Login",
-        "getStartedLabel": "Get Started"
+        "closeMenuAriaLabel": "Close menu"
       }
     },
     "marketingPage": {
@@ -49,6 +47,42 @@
         "badge": "Let's Connect",
         "title": "Schedule a Strategic Consultation",
         "description": "Transform your vision into reality with our expert team. Share your details below, and we'll connect within 24 hours to discuss your 2026 objectives."
+      },
+      "pricing": {
+        "eyebrow": "Pricing",
+        "title": "Website package",
+        "description": "A fast, modern website with everything you need to launch confidently.",
+        "includedHeading": "Included",
+        "plans": [
+          {
+            "name": "Professional",
+            "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
+            "benefitsCountLabel": "+21 Additional Benefits",
+            "benefits": [
+              "Professional Design",
+              "24-Hour Creation",
+              "Free Hosting +",
+              "100% Guarantee",
+              "Online Chat",
+              "Admin Panel",
+              "Technical Support"
+            ]
+          },
+          {
+            "name": "Starter",
+            "price": { "currencySymbol": "֏", "major": "20", "minorSup": "000", "suffix": "+" },
+            "benefitsCountLabel": "Best for small projects",
+            "benefits": [
+              "Professional Design",
+              "Landing page",
+              "Mobile responsive",
+              "Free Hosting +",
+              "Contact form",
+              "Basic SEO setup",
+              "Domain setup"
+            ]
+          }
+        ]
       }
     },
     "contactForm": {
@@ -86,10 +120,18 @@
       "copyrightSuffix": "Automation Agency. All rights reserved.",
       "privacyPolicyLabel": "Privacy Policy",
       "termsOfServiceLabel": "Terms of Service"
+    },
+    "announcementBar": {
+      "limitedOffer": "Limited offer",
+      "expiresPrefix": "Discount expires in",
+      "saleText": "New Year Sale: 85% OFF • Ends Dec 31",
+      "endsAtIso": "2026-12-31T23:59:59Z",
+      "closeAriaLabel": "Dismiss announcement",
+      "units": { "days": "d", "hours": "h", "minutes": "m", "seconds": "s" }
     }
   },
   "navigation": {
-    "nav": { "home": "Home", "services": "Services", "portfolio": "Portfolio", "contact": "Contact" },
+    "nav": { "home": "Home", "services": "Services", "portfolio": "Portfolio", "pricing": "Pricing", "contact": "Contact" },
     "footerServices": {
       "itSupport": "IT Support",
       "automation": "Automation",

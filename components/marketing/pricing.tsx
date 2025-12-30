@@ -1,230 +1,108 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-
 import { Check } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
 
-import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
-import { Slider } from "@/components/ui/slider";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { CreditsBillingCycle, StorageBillingCycle } from "@/content/pricing";
-import { creditsCard, creditsRange, storageCard, storageRange } from "@/content/pricing";
 import { cn } from "@/lib/utils/cn";
+
+type PricingPlanCopy = {
+  name: string;
+  price: {
+    currencySymbol: string;
+    major: string;
+    minorSup?: string;
+    suffix?: string;
+  };
+  benefitsCountLabel: string;
+  benefits: string[];
+};
 
 type PricingProps = {
   id?: string;
   className?: string;
+  copy: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    includedHeading: string;
+    plans: PricingPlanCopy[];
+  };
 };
 
-export const Pricing = ({ id = "pricing", className }: PricingProps) => {
-  const prefersReducedMotion = useReducedMotion();
-  const [creditsBillingCycle, setCreditsBillingCycle] = useState<CreditsBillingCycle>("monthly");
-  const [storageBillingCycle, setStorageBillingCycle] = useState<StorageBillingCycle>("monthly");
-  const [creditsAmount, setCreditsAmount] = useState<number>(creditsRange.defaultValue);
-  const [storageAmount, setStorageAmount] = useState<number>(storageRange.defaultValue);
+type PricingCardProps = {
+  copy: PricingPlanCopy;
+  includedHeading: string;
+};
 
-  const creditsOptions = useMemo(
-    () => [
-      { value: "monthly" as const, label: "Monthly" },
-      { value: "annual" as const, label: "Annual" },
-      { value: "one-time" as const, label: "One-time" },
-    ],
-    [],
+const PricingCard = ({ copy, includedHeading }: PricingCardProps) => {
+  return (
+    <div className="rounded-3xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] p-8 text-center shadow-[0_18px_55px_rgba(0,0,0,0.20)] backdrop-blur-sm">
+      <div className="text-sm font-semibold tracking-wide text-foreground/80">{copy.name}</div>
+
+      <div className="mt-4 flex items-baseline justify-center gap-3">
+        <span className="text-2xl font-semibold tracking-tight text-foreground">{copy.price.currencySymbol}</span>
+        <span className="text-6xl font-semibold tracking-tight text-foreground leading-none">
+          {copy.price.major}
+          {copy.price.minorSup ? (
+            <span className="align-super text-2xl tracking-tight text-foreground/80">{copy.price.minorSup}</span>
+          ) : null}
+          {copy.price.suffix ? <span className="ml-1 text-3xl font-semibold text-foreground/90">{copy.price.suffix}</span> : null}
+        </span>
+      </div>
+
+      <div className="mt-6 inline-flex items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-4 py-1.5">
+        <span className="text-xs font-semibold tracking-wide text-(--accent)">{copy.benefitsCountLabel}</span>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[color-mix(in_srgb,var(--foreground)_70%,transparent)]">
+          {includedHeading}
+        </h3>
+
+        <div className="mx-auto max-w-sm space-y-4 text-left">
+          {copy.benefits.map((benefit) => (
+            <div key={benefit} className="grid grid-cols-[20px_1fr] items-start gap-3">
+              <Check className="mt-0.5 h-5 w-5 text-(--accent)" />
+              <span className="text-base font-medium text-foreground">{benefit}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
+};
 
-  const storageOptions = useMemo(
-    () => [
-      { value: "monthly" as const, label: "Monthly" },
-      { value: "annual" as const, label: "Annual" },
-    ],
-    [],
-  );
-
-  const onCreditsBillingCycleChange = useCallback(({ value }: { value: CreditsBillingCycle }) => {
-    setCreditsBillingCycle(value);
-  }, []);
-
-  const onStorageBillingCycleChange = useCallback(({ value }: { value: StorageBillingCycle }) => {
-    setStorageBillingCycle(value);
-  }, []);
-
-  const onCreditsBillingCycleValueChange = useCallback(
-    (value: string) => {
-      onCreditsBillingCycleChange({ value: value as CreditsBillingCycle });
-    },
-    [onCreditsBillingCycleChange],
-  );
-
-  const onStorageBillingCycleValueChange = useCallback(
-    (value: string) => {
-      onStorageBillingCycleChange({ value: value as StorageBillingCycle });
-    },
-    [onStorageBillingCycleChange],
-  );
-
-  const onCreditsAmountChange = useCallback((value: number[]) => {
-    setCreditsAmount(value[0] ?? creditsRange.min);
-  }, []);
-
-  const onStorageAmountChange = useCallback((value: number[]) => {
-    setStorageAmount(value[0] ?? storageRange.min);
-  }, []);
-
+export const Pricing = ({ id = "pricing", className, copy }: PricingProps) => {
   return (
     <section id={id} className={cn("relative w-full overflow-hidden bg-background py-16 md:py-24 scroll-mt-20 sm:scroll-mt-24", className)}>
       <Container>
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <h2 className="mb-4 text-balance text-[clamp(36px,6vw,56px)] font-normal tracking-[-0.02em] text-foreground leading-[1.1]">
-            Flexible Pricing
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Forget bloated subscriptions. Credits for generations, storage for what matters.
-          </p>
-          <p className="mt-2 text-lg text-muted-foreground">
-            Buy once, subscribe, or go annual. It&apos;s a model built on trust, not tricks.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-12 flex justify-center"
-        >
-          <Button asChild variant="secondary" className="px-6 py-3 transition-transform hover:scale-105">
-            <a href="#pricing">
-              Start with 2,000+
-              <span aria-hidden="true">›</span>
-            </a>
-          </Button>
-        </motion.div>
-
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
-          <motion.article
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-3xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] p-8 shadow-[0_18px_55px_rgba(0,0,0,0.20)] backdrop-blur-sm"
-          >
-            <h3 className="mb-2 text-xl font-medium tracking-tight text-foreground">{creditsCard.title}</h3>
-            <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{creditsCard.description}</p>
-
-            <Tabs value={creditsBillingCycle} onValueChange={onCreditsBillingCycleValueChange} className="mb-6">
-              <TabsList className="grid w-full grid-cols-3">
-                {creditsOptions.map((option) => (
-                  <TabsTrigger key={option.value} value={option.value}>
-                    {option.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-
-            <div className="mb-4 text-center">
-              <div className="mb-3 inline-flex rounded-full bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] px-3 py-1 text-xs font-medium text-(--accent)">
-                Most popular
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center md:mb-12">
+            <Reveal>
+              <div className="mb-4 inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-4 py-1.5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">{copy.eyebrow}</span>
               </div>
-              <div className="text-3xl font-medium tracking-tight text-foreground">{creditsAmount.toLocaleString()} +</div>
-            </div>
+            </Reveal>
 
-            <div className="mb-6">
-              <Slider
-                aria-label="Credits amount"
-                min={creditsRange.min}
-                max={creditsRange.max}
-                step={creditsRange.step}
-                value={[creditsAmount]}
-                onValueChange={onCreditsAmountChange}
-              />
-            </div>
+            <Reveal delayMs={80}>
+              <h2 className="text-balance text-[clamp(36px,6vw,56px)] font-normal tracking-[-0.02em] leading-[1.1] text-foreground">
+                {copy.title}
+              </h2>
+            </Reveal>
 
-            <div className="mb-6">
-              <div className="mb-1 flex items-baseline gap-2">
-                <span className="text-4xl font-medium tracking-tight text-foreground">$24</span>
-                <span className="text-base text-muted-foreground line-through">$30</span>
-                <span className="text-base text-muted-foreground">/mo</span>
-              </div>
-              <div className="text-sm text-(--accent)">20% volume discount</div>
-            </div>
+            <Reveal delayMs={140}>
+              <p className="mt-4 text-lg text-muted-foreground">{copy.description}</p>
+            </Reveal>
+          </div>
 
-            <div className="mb-6 space-y-3">
-              {creditsCard.features.map((feature) => (
-                <div key={feature.label} className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">{feature.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-center text-xs leading-relaxed text-muted-foreground">
-              With a 20% volume discount, you&apos;re saving $6 on this credits plan every month!
-            </p>
-          </motion.article>
-
-          <motion.article
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
-            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="rounded-3xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] p-8 shadow-[0_18px_55px_rgba(0,0,0,0.20)] backdrop-blur-sm"
-          >
-            <h3 className="mb-2 text-xl font-medium tracking-tight text-foreground">{storageCard.title}</h3>
-            <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{storageCard.description}</p>
-
-            <Tabs value={storageBillingCycle} onValueChange={onStorageBillingCycleValueChange} className="mb-6">
-              <TabsList className="grid w-full grid-cols-2">
-                {storageOptions.map((option) => (
-                  <TabsTrigger key={option.value} value={option.value}>
-                    {option.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-
-            <div className="mb-4 text-center">
-              <div className="h-7" aria-hidden="true" />
-              <div className="text-3xl font-medium tracking-tight text-foreground">{storageAmount} GB</div>
-            </div>
-
-            <div className="mb-6">
-              <Slider
-                aria-label="Storage amount"
-                min={storageRange.min}
-                max={storageRange.max}
-                step={storageRange.step}
-                value={[storageAmount]}
-                onValueChange={onStorageAmountChange}
-              />
-            </div>
-
-            <div className="mb-6">
-              <div className="mb-1 flex items-baseline gap-2">
-                <span className="text-4xl font-medium tracking-tight text-foreground">Free</span>
-              </div>
-            </div>
-
-            <div className="mb-6 space-y-3">
-              {storageCard.features.map((feature) => (
-                <div key={feature.label} className="flex items-center gap-3">
-                  <Check className="h-4 w-4 shrink-0 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">{feature.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-center text-xs leading-relaxed text-muted-foreground">
-              Make sure to check out our volume discounts. Annual plans get 2 free months of storage!
-            </p>
-          </motion.article>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {copy.plans.map((plan, index) => (
+              <Reveal key={plan.name} delayMs={index * 70}>
+                <PricingCard copy={plan} includedHeading={copy.includedHeading} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

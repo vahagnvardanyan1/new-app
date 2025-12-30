@@ -10,6 +10,7 @@ import { aiRoles, floatingCards, services } from "@/content/marketing";
 import type { Messages } from "@/i18n/messages";
 import { getMessages } from "next-intl/server";
 import { LogoMarquee } from "@/components/marketing/logo-marquee";
+import { Pricing } from "@/components/marketing/pricing";
 
 const Hero = dynamic(() => import("@/components/marketing/hero").then((m) => m.Hero));
 const ServicesCarousel = dynamic(() => import("@/components/marketing/services-carousel").then((m) => m.ServicesCarousel));
@@ -78,7 +79,12 @@ const MarketingPage = async ({ params }: MarketingPageProps) => {
 
   return (
     <>
-      <Hero copy={messages.ui.marketingPage.hero} cards={cards} />
+      <Hero
+        copy={messages.ui.marketingPage.hero}
+        cards={cards}
+        contactDialog={messages.ui.marketingPage.contact}
+        contactFormCopy={messages.ui.contactForm}
+      />
       <LogoMarquee copy={messages.ui.marketingPage.logoMarquee} />
       
       <ServicesCarousel copy={messages.ui.marketingPage.services} items={serviceItems} />
@@ -91,6 +97,7 @@ const MarketingPage = async ({ params }: MarketingPageProps) => {
       />
 
       <FeaturesGrid items={featureItems} />
+      <Pricing copy={messages.ui.marketingPage.pricing} />
       <AiAssistant copy={messages.ui.marketingPage.aiAssistant} roles={roleItems} />
       <ContactSection copy={messages.ui.marketingPage.contact} formCopy={messages.ui.contactForm} />
     </>

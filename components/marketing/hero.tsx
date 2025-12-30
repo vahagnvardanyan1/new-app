@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef } from "react";
+import type { ComponentProps } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
+import { ContactDialog } from "@/components/marketing/contact-dialog";
+import { ContactForm } from "@/components/marketing/contact-form";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils/cn";
@@ -28,6 +31,11 @@ type HeroProps = {
     ctaLabel: string;
     ctaHref: string;
   };
+  contactDialog: {
+    title: string;
+    description: string;
+  };
+  contactFormCopy: ComponentProps<typeof ContactForm>["copy"];
 };
 
 const getEnterDelaySeconds = ({ id }: { id: number }) => {
@@ -36,10 +44,11 @@ const getEnterDelaySeconds = ({ id }: { id: number }) => {
   return bucket / 100;
 };
 
-export const Hero = ({ className, cards, copy }: HeroProps) => {
+export const Hero = ({ className, cards, copy, contactDialog, contactFormCopy }: HeroProps) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const prefersReducedMotion = useReducedMotion();
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const cardDepthMap = useMemo(() => {
     return new Map(cards.map((card, index) => [card.id, (index + 1) / (cards.length + 1)]));
@@ -184,16 +193,27 @@ export const Hero = ({ className, cards, copy }: HeroProps) => {
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.2, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Button asChild className="px-10 py-4">
-                <a href={copy.ctaHref}>
-                  {copy.ctaLabel}
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </a>
+              <Button
+                className="group px-10 py-4"
+                type="button"
+                onClick={() => {
+                  setIsContactOpen(true);
+                }}
+              >
+                {copy.ctaLabel}
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>
           </div>
         </Container>
       </div>
+
+      <ContactDialog
+        open={isContactOpen}
+        onOpenChange={({ open }) => setIsContactOpen(open)}
+        copy={contactDialog}
+        formCopy={contactFormCopy}
+      />
     </section>
   );
 };

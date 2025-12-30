@@ -4,7 +4,6 @@ import { useId } from "react";
 
 import { Menu, X } from "lucide-react";
 
-import { GlowButton } from "@/components/ui/glow-button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils/cn";
 
@@ -19,8 +18,6 @@ type MobileNavProps = {
   labels?: {
     openMenuAriaLabel: string;
     closeMenuAriaLabel: string;
-    loginLabel: string;
-    getStartedLabel: string;
   };
 };
 
@@ -30,8 +27,6 @@ export const MobileNav = ({
   labels = {
     openMenuAriaLabel: "Open menu",
     closeMenuAriaLabel: "Close menu",
-    loginLabel: "Login",
-    getStartedLabel: "Get Started",
   },
 }: MobileNavProps) => {
   const dialogId = useId();
@@ -81,19 +76,8 @@ export const MobileNav = ({
               ))}
             </nav>
 
-            <div className="flex w-full max-w-sm flex-col items-center gap-6">
-              <SheetClose asChild>
-                <a href="#login" className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  {labels.loginLabel}
-                </a>
-              </SheetClose>
 
-              <SheetClose asChild>
-                <GlowButton href="#services" className="w-full">
-                  {labels.getStartedLabel}
-                </GlowButton>
-              </SheetClose>
-            </div>
+         <div></div>
           </div>
         </SheetContent>
       </Sheet>

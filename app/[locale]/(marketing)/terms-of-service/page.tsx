@@ -24,8 +24,7 @@ export const generateMetadata = async ({ params }: TermsOfServicePageProps): Pro
 };
 
 const TermsOfServicePage = async ({ params }: TermsOfServicePageProps) => {
-  const { locale: rawLocale } = await params;
-  const locale = rawLocale;
+  void params;
   const messages = (await getMessages()) as Messages;
 
   return (

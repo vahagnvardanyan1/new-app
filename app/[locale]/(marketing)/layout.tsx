@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import type { Messages } from "@/i18n/messages";
@@ -24,11 +25,13 @@ const MarketingLayout = async ({ children, params }: MarketingLayoutProps) => {
     { label: messages.navigation.nav.home, href: withLocalePathname({ pathname: "/#home" }) },
     { label: messages.navigation.nav.services, href: withLocalePathname({ pathname: "/#services" }) },
     { label: messages.navigation.nav.portfolio, href: withLocalePathname({ pathname: "/#portfolio" }) },
+    { label: messages.navigation.nav.pricing, href: withLocalePathname({ pathname: "/#pricing" }) },
     { label: messages.navigation.nav.contact, href: withLocalePathname({ pathname: "/#contact" }) },
   ];
 
   return (
     <>
+      <AnnouncementBar copy={messages.ui.announcementBar} />
       <SiteHeader
         navItems={navItems}
         homeHref={withLocalePathname({ pathname: "/#home" })}

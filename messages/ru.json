@@ -6,9 +6,7 @@
       "localeSwitcherAriaLabel": "Выбрать язык",
       "mobileNav": {
         "openMenuAriaLabel": "Открыть меню",
-        "closeMenuAriaLabel": "Закрыть меню",
-        "loginLabel": "Войти",
-        "getStartedLabel": "Начать"
+        "closeMenuAriaLabel": "Закрыть меню"
       }
     },
     "marketingPage": {
@@ -49,6 +47,42 @@
         "badge": "Связаться",
         "title": "Запланируйте стратегическую консультацию",
         "description": "Превратите идею в результат вместе с нашей командой. Оставьте детали ниже — мы свяжемся в течение 24 часов, чтобы обсудить цели на 2026 год."
+      },
+      "pricing": {
+        "eyebrow": "Цены",
+        "title": "Пакет сайта",
+        "description": "Быстрый современный сайт со всем необходимым для уверенного запуска.",
+        "includedHeading": "Включено",
+        "plans": [
+          {
+            "name": "Профессиональный",
+            "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
+            "benefitsCountLabel": "+21 Дополнительные преимущества",
+            "benefits": [
+              "Профессиональный дизайн",
+              "Создание за 24 часа",
+              "Бесплатный хостинг +",
+              "100% гарантия",
+              "Онлайн чат",
+              "Админ панель",
+              "Техническая поддержка"
+            ]
+          },
+          {
+            "name": "Стартовый",
+            "price": { "currencySymbol": "֏", "major": "20", "minorSup": "000", "suffix": "+" },
+            "benefitsCountLabel": "Для небольших проектов",
+            "benefits": [
+              "Профессиональный дизайн",
+              "Лендинг-страница",
+              "Адаптив под мобильные",
+              "Форма обратной связи",
+              "Бесплатный хостинг +",
+              "Базовая настройка SEO",
+              "Настройка домена"
+            ]
+          }
+        ]
       }
     },
     "contactForm": {
@@ -86,10 +120,18 @@
       "copyrightSuffix": "Automation Agency. Все права защищены.",
       "privacyPolicyLabel": "Политика конфиденциальности",
       "termsOfServiceLabel": "Условия использования"
+    },
+    "announcementBar": {
+      "limitedOffer": "Ограниченное предложение",
+      "expiresPrefix": "Скидка закончится через",
+      "saleText": "Новогодняя распродажа: -85% • До 31 дек.",
+      "endsAtIso": "2026-12-31T23:59:59Z",
+      "closeAriaLabel": "Закрыть объявление",
+      "units": { "days": "д", "hours": "ч", "minutes": "м", "seconds": "с" }
     }
   },
   "navigation": {
-    "nav": { "home": "Главная", "services": "Услуги", "portfolio": "Портфолио", "contact": "Контакты" },
+    "nav": { "home": "Главная", "services": "Услуги", "portfolio": "Портфолио", "pricing": "Цены", "contact": "Контакты" },
     "footerServices": {
       "itSupport": "IT поддержка",
       "automation": "Автоматизация",

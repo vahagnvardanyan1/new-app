@@ -24,8 +24,6 @@ type SiteHeaderProps = {
     mobileNav: {
       openMenuAriaLabel: string;
       closeMenuAriaLabel: string;
-      loginLabel: string;
-      getStartedLabel: string;
     };
   };
 };
@@ -34,7 +32,7 @@ export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
   const { toggleThemeMode } = useThemeMode();
 
   return (
-        <header className="fixed left-0 right-0 top-4 sm:top-6 z-50">
+        <header className="fixed left-0 right-0 top-16 sm:top-[72px] z-50">
 
       <Container className="flex justify-center px-0 sm:px-6">
 
