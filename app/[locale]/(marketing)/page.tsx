@@ -30,6 +30,26 @@ export const generateMetadata = async ({ params }: MarketingPageProps): Promise<
     alternates: {
       canonical: `/${locale}`,
     },
+    openGraph: {
+      title: messages.ui.marketingPage.meta.title,
+      description: messages.ui.marketingPage.meta.description,
+      images: [
+        {
+          url: "/images/image4.png",
+          width: 1200,
+          height: 630,
+          alt: messages.ui.marketingPage.meta.title,
+        },
+      ],
+      locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: messages.ui.marketingPage.meta.title,
+      description: messages.ui.marketingPage.meta.description,
+      images: ["/images/image4.png"],
+    },
   };
 };
 

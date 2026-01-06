@@ -39,32 +39,32 @@ export type AiRoleItem = {
 export const floatingCards: FloatingCardBaseItem[] = [
   {
     id: 1,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/71f23836-d608-41a9-9ca8-68123604b0db.png?type=webp&to=min&r=1600",
+    src: "https://cdn-pipeline-output.picsart.com/magic-flow/858fb047-51ba-4a31-9b97-74f72232a70c.png",
     className: "top-[10%] left-[5%] rotate-[-8deg]",
   },
   {
     id: 2,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/049f3a76-461b-4e79-b056-f3c71e6c6dfa.png?type=webp&to=min&r=1600",
+    src: "https://cdn-pipeline-output.picsart.com/magic-flow/91feb14f-78d3-4905-8184-926566036491.png",
     className: "top-[15%] right-[8%] rotate-[12deg]",
   },
   {
     id: 3,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/14e0dc49-9e62-4d0e-850a-83a37f3dd3a8.png",
+    src: "/images/image1.png",
     className: "top-[45%] left-[3%] rotate-[5deg]",
   },
   {
     id: 4,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/c1af9f94-ede9-47c4-9669-a6eea01a4fc9.png",
+    src: "/images/image2.png",
     className: "top-[50%] right-[5%] rotate-[10deg]",
   },
   {
     id: 6,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/858fb047-51ba-4a31-9b97-74f72232a70c.png",
+    src: "/images/image3.png",
     className: "bottom-[8%] left-[18%] rotate-[7deg]",
   },
   {
     id: 7,
-    src: "https://cdn-pipeline-output.picsart.com/magic-flow/91feb14f-78d3-4905-8184-926566036491.png",
+    src: "/images/image4.png",
     className: "bottom-[10%] right-[22%] rotate-[-10deg]",
   },
 ];
