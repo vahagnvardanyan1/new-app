@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { Moon, Sun } from "lucide-react";
 
@@ -68,10 +69,7 @@ export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
 
           <div className="relative flex items-center gap-3 px-4 py-2.5 sm:gap-8 sm:px-5">
             <Link href={homeHref} className="flex items-center gap-3">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-(--accent)">
-                <span className="h-3.5 w-3.5 rounded-sm border-2 border-white" />
-              </span>
-              <span className="sr-only">{labels.brandSrOnly}</span>
+              <Image src="/Logo.svg" alt={labels.brandSrOnly} width={76} height={28} className="h-7 w-auto" />
             </Link>
 
             <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
