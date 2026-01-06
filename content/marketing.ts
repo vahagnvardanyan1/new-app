@@ -107,13 +107,6 @@ export const services: ServiceBaseItem[] = [
     },
   },
   {
-    id: "motion-design",
-    accentClassName: "from-pink-500/20 to-rose-500/20",
-    image: {
-      src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80",
-    },
-  },
-  {
     id: "digital-strategy",
     accentClassName: "from-indigo-500/20 to-blue-500/20",
     image: {

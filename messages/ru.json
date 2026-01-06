@@ -20,8 +20,7 @@
       "hero": {
         "titleLine1": "Ваш партнёр в цифровой",
         "titleLine2": "автоматизации",
-        "descriptionLine1": "Мы создаём системы, которые помогают бизнесу масштабироваться.",
-        "descriptionLine2": "Автоматизация, IT-решения и маркетинг — в одном месте.",
+        "descriptionLine": "Мы делаем это легко.",
         "ctaLabel": "Начать",
         "ctaHref": "#services"
       },
@@ -56,7 +55,7 @@
         "plans": [
           {
             "name": "Стартовый",
-            "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
+            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000" },
             "benefitsCountLabel": "+21 Дополнительные преимущества",
             "benefits": [
               "Профессиональный дизайн",
@@ -70,7 +69,7 @@
           },
           {
             "name": "Профессиональный",
-            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Для небольших проектов",
             "benefits": [
               "Профессиональный дизайн",
@@ -174,12 +173,6 @@
           "title": "Оптимизация производительности",
           "description": "Новогоднее обещание: молниеносная загрузка. Улучшайте скорость и удовлетворённость пользователей.",
           "imageAlt": "Дашборд оптимизации производительности"
-        },
-        {
-          "id": "motion-design",
-          "title": "Моушн-дизайн",
-          "description": "Оживите видение 2026 с анимациями, которые вовлекают и запоминаются.",
-          "imageAlt": "Кадры моушн‑дизайна"
         },
         {
           "id": "digital-strategy",

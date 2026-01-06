@@ -26,8 +26,7 @@ type HeroProps = {
   copy: {
     titleLine1: string;
     titleLine2: string;
-    descriptionLine1: string;
-    descriptionLine2: string;
+    descriptionLine: string;
     ctaLabel: string;
     ctaHref: string;
   };
@@ -167,7 +166,7 @@ export const Hero = ({ className, cards, copy, contactDialog, contactFormCopy }:
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <motion.h1
-              className="mb-6 text-balance text-[clamp(48px,8vw,96px)] font-normal tracking-[-0.02em] text-foreground leading-[1.1]"
+              className="mb-12 text-balance text-[clamp(48px,8vw,96px)] font-normal tracking-[-0.02em] text-foreground leading-[1.1]"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.05, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -176,22 +175,12 @@ export const Hero = ({ className, cards, copy, contactDialog, contactFormCopy }:
               <br />
               {copy.titleLine2}
             </motion.h1>
-            <motion.p
-              className="mx-auto mb-12 max-w-2xl text-pretty text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-(--muted)"
+
+            <motion.div
+              className="flex items-center justify-center"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {copy.descriptionLine1}
-              <br />
-              {copy.descriptionLine2}
-            </motion.p>
-
-            <motion.div
-              className="mt-12 flex items-center justify-center"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
-              animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-              transition={prefersReducedMotion ? undefined : { delay: 0.2, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
               <Button
                 className="group px-10 py-4"
@@ -204,6 +193,15 @@ export const Hero = ({ className, cards, copy, contactDialog, contactFormCopy }:
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>
+
+            <motion.p
+              className="mx-auto mt-4 max-w-2xl text-pretty text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-[color-mix(in_srgb,var(--foreground)_85%,transparent)]"
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+              animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+              transition={prefersReducedMotion ? undefined : { delay: 0.2, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {copy.descriptionLine}
+            </motion.p>
           </div>
         </Container>
       </div>

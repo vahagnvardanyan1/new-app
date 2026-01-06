@@ -20,8 +20,7 @@
       "hero": {
         "titleLine1": "Ձեր թվային",
         "titleLine2": "ավտոմատացման գործընկերը",
-        "descriptionLine1": "Մենք կառուցում ենք համակարգեր, որոնք օգնում են բիզնեսին մասշտաբավորվել։",
-        "descriptionLine2": "Ավտոմատացում, IT լուծումներ և մարքեթինգ՝ մեկ վայրում։",
+        "descriptionLine": "Մենք այն դարձնում ենք հեշտ:",
         "ctaLabel": "Սկսել",
         "ctaHref": "#services"
       },
@@ -56,7 +55,7 @@
         "plans": [
           {
             "name": "Սթարթ",
-            "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
+            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000" },
             "benefitsCountLabel": "+21 Լրացուցիչ առավելություններ",
             "benefits": [
               "Մասնագիտական դիզայն",
@@ -70,7 +69,7 @@
           },
           {
             "name": "Պրոֆեսիոնալ",
-            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Փոքր նախագծերի համար",
             "benefits": [
               "Մասնագիտական դիզայն",
@@ -174,12 +173,6 @@
           "title": "Արտադրողականության օպտիմիզացիա",
           "description": "Տարվա նպատակ՝ կայծակնային արագ բեռնում։ Բարձրացրեք արագությունն ու օգտատերերի գոհունակությունը։",
           "imageAlt": "Արտադրողականության օպտիմիզացիայի վահանակ"
-        },
-        {
-          "id": "motion-design",
-          "title": "Մոուշըն դիզայն",
-          "description": "Կենդանացրեք 2026-ի տեսլականը՝ անիմացիաներով, որոնք գրավում և ներգրավում են։",
-          "imageAlt": "Մոուշըն դիզայնի կադրեր"
         },
         {
           "id": "digital-strategy",

@@ -20,8 +20,8 @@
       "hero": {
         "titleLine1": "Your partner for digital",
         "titleLine2": "automation",
-        "descriptionLine1": "We build systems that help businesses scale.",
-        "descriptionLine2": "Automation, IT solutions, and marketing — all in one place.",
+        "descriptionLine": "We Make IT Easy",
+        
         "ctaLabel": "Get Started",
         "ctaHref": "#services"
       },
@@ -56,7 +56,7 @@
         "plans": [
           {
             "name": "Starter",
-            "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
+            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000" },
             "benefitsCountLabel": "+21 Additional Benefits",
             "benefits": [
               "Professional Design",
@@ -70,7 +70,7 @@
           },
           {
             "name": "Professional",
-            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Best for small projects",
             "benefits": [
               "Professional Design",
@@ -174,12 +174,6 @@
           "title": "Performance Optimization",
           "description": "New year resolution: lightning-fast load times. Boost your performance and user satisfaction.",
           "imageAlt": "Performance optimization dashboard"
-        },
-        {
-          "id": "motion-design",
-          "title": "Motion Design",
-          "description": "Bring your 2026 vision to life with animations that captivate and engage your audience.",
-          "imageAlt": "Motion design frames"
         },
         {
           "id": "digital-strategy",
